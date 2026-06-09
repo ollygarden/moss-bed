@@ -473,7 +473,7 @@ export const ChipDropdowns: Story = {
       </div>
 
       <Form<ChipForm> {...args}>
-        <div className="flex gap-4 items-end">
+        <div className="grid grid-cols-2 gap-4 items-end">
           <Dropdown
             name="status"
             label="Status"
