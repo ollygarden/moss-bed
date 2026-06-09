@@ -11,18 +11,39 @@ import {
 import { Button } from '../Button';
 import { Tag } from '../Tag';
 
+const PLACEHOLDER_IMAGE =
+  'data:image/svg+xml;utf8,' +
+  encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#38373A" />
+          <stop offset="100%" stop-color="#1a1d20" />
+        </linearGradient>
+      </defs>
+      <rect width="320" height="180" fill="url(#g)" />
+    </svg>`
+  );
+
 const meta: Meta<typeof Card> = {
   title: 'Card',
   component: Card,
-  parameters: {
-    layout: 'centered',
-  },
+  parameters: { layout: 'centered' },
   tags: ['autodocs'],
   argTypes: {
     variant: {
       control: 'select',
-      options: ['default', 'vertical', 'horizontal', 'elevated'],
-      description: 'The layout variant of the card',
+      options: [
+        'default',
+        'vertical',
+        'horizontal',
+        'elevated',
+        'transparent',
+        'insight',
+        'settings',
+        'glass',
+      ],
+      description: 'The visual variant of the card',
     },
     className: {
       control: 'text',
@@ -34,23 +55,19 @@ const meta: Meta<typeof Card> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Using default background-numbers.png image from public folder
-
 export const Default: Story = {
   args: {
     variant: 'default',
+    className: 'w-80',
     children: (
       <>
         <CardHeader>
           <CardTitle>Default Card</CardTitle>
-          <CardDescription>
-            Standard card with olly-grey-800 background
-          </CardDescription>
+          <CardDescription>The standard card surface.</CardDescription>
         </CardHeader>
         <CardContent>
           <p className="text-white/80">
-            This is the default card variant with the correct background color
-            olly-grey-800.
+            Use for general content blocks on grey-800 surfaces.
           </p>
         </CardContent>
         <CardFooter>
@@ -63,6 +80,122 @@ export const Default: Story = {
   },
 };
 
+export const Insight: Story = {
+  args: {
+    variant: 'insight',
+    className: 'w-80',
+    children: (
+      <>
+        <CardHeader>
+          <CardTitle>Insight Card</CardTitle>
+          <CardDescription>
+            Elevated surface used for grouped findings.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex items-center gap-2 mb-3">
+            <Tag color="green">Resolved</Tag>
+            <Tag color="default">3 items</Tag>
+          </div>
+          <p className="text-sm text-white/70">
+            Sits on grey-900 with a soft shadow for visual hierarchy.
+          </p>
+        </CardContent>
+      </>
+    ),
+  },
+};
+
+export const Settings: Story = {
+  args: {
+    variant: 'settings',
+    className: 'w-96',
+    children: (
+      <>
+        <CardHeader>
+          <CardTitle>Settings Section</CardTitle>
+          <CardDescription>
+            Bordered surface for grouped form rows.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className="text-white/80">
+            Used on configuration pages to delimit related controls.
+          </p>
+        </CardContent>
+        <CardFooter className="gap-2">
+          <Button variant="ghost" size="medium">
+            Cancel
+          </Button>
+          <Button size="medium">Save changes</Button>
+        </CardFooter>
+      </>
+    ),
+  },
+};
+
+export const Transparent: Story = {
+  args: {
+    variant: 'transparent',
+    className: 'w-80',
+    children: (
+      <>
+        <CardHeader>
+          <CardTitle>Transparent Card</CardTitle>
+          <CardDescription>
+            No background, no border — useful inside other surfaces.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className="text-white/70">
+            Lets the parent background show through.
+          </p>
+        </CardContent>
+      </>
+    ),
+  },
+};
+
+export const Glass: Story = {
+  args: {
+    variant: 'glass',
+    className: 'w-80',
+    children: (
+      <>
+        <CardHeader>
+          <CardTitle>Glass Card</CardTitle>
+          <CardDescription>Subtle border with grey-900 fill.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className="text-white/70">
+            Use when stacking cards over a heavier background image.
+          </p>
+        </CardContent>
+      </>
+    ),
+  },
+};
+
+export const Elevated: Story = {
+  args: {
+    variant: 'elevated',
+    className: 'w-80',
+    children: (
+      <>
+        <CardHeader>
+          <CardTitle>Elevated Card</CardTitle>
+          <CardDescription>Heavier shadow for emphasis.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className="text-white/70">
+            Use sparingly to draw attention to a primary action.
+          </p>
+        </CardContent>
+      </>
+    ),
+  },
+};
+
 export const Vertical: Story = {
   args: {
     variant: 'vertical',
@@ -70,27 +203,27 @@ export const Vertical: Story = {
     children: (
       <>
         <CardImage
-          src="/background-numbers.png"
-          alt="Service visualization"
+          src={PLACEHOLDER_IMAGE}
+          alt="Placeholder"
           aspectRatio="video"
+          serviceName="Example Title"
         />
         <CardHeader className="pb-2">
-          <CardTitle className="text-lg">Service Monitor</CardTitle>
-          <CardDescription>Real-time observability insight</CardDescription>
+          <CardTitle className="text-lg">Vertical Card</CardTitle>
+          <CardDescription>Image on top, content below.</CardDescription>
         </CardHeader>
         <CardContent className="pt-0">
           <div className="flex items-center gap-2 mb-3">
             <Tag color="green">Active</Tag>
-            <Tag color="default">Trace</Tag>
+            <Tag color="default">Featured</Tag>
           </div>
           <p className="text-sm text-white/70">
-            Monitor your service performance with real-time metrics and
-            distributed tracing.
+            Use for media-led content blocks in grids.
           </p>
         </CardContent>
         <CardFooter>
           <Button size="medium" className="w-full">
-            View Details
+            Open
           </Button>
         </CardFooter>
       </>
@@ -98,229 +231,68 @@ export const Vertical: Story = {
   },
 };
 
-export const Horizontal: Story = {
-  args: {
-    variant: 'horizontal',
-    className: 'cursor-pointer hover:bg-[#3a393c] transition-colors',
-    image: '/background-numbers.png',
-    imageAlt: 'Dashboard preview',
-    title: 'Solve Critical Log Insights',
-    description: 'Fix high-severity log insights to improve reliability',
-    showChevron: true,
-  },
-};
-
-export const Elevated: Story = {
-  args: {
-    variant: 'elevated',
-    children: (
-      <>
-        <CardHeader>
-          <CardTitle>Elevated Car</CardTitle>
-          <CardDescription>Enhanced with shadow for prominenc</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            <div className="flex justify-between items-center">
-              <span className="text-white/80">Instrumentation Score</span>
-              <span className="text-2xl font-bold text-olly-accent">87</span>
-            </div>
-            <div className="w-full bg-white/10 rounded-full h-2">
-              <div
-                className="bg-olly-accent h-2 rounded-full"
-                style={{ width: '87%' }}
-              ></div>
-            </div>
-            <p className="text-sm text-white/70">
-              Your services are well instrumented with room for improvement.
-            </p>
-          </div>
-        </CardContent>
-      </>
-    ),
-  },
-};
-
-export const HorizontalVariations: Story = {
-  render: () => (
-    <div className="space-y-4">
-      <Card
-        variant="horizontal"
-        className="cursor-pointer hover:bg-[#3a393c] transition-colors"
-        image="/BackgroundImage1.png"
-        imageAlt="Service icon"
-        title="User Service"
-        description="Authentication and user management service"
-        showChevron={true}
-      />
-
-      <Card
-        variant="horizontal"
-        className="cursor-pointer hover:bg-[#3a393c] transition-colors"
-        image="/BackgroundImage2.png"
-        imageAlt="Metrics icon"
-        title="Payment Service"
-        description="Payment processing with high reliability and security"
-        showChevron={true}
-      />
-
-      <Card
-        variant="horizontal"
-        className="cursor-pointer hover:bg-[#3a393c] transition-colors"
-        image="/BackgroundImage3.png"
-        imageAlt="Dashboard icon"
-        title="Notification Service"
-        description="Real-time notifications and email delivery system"
-        showChevron={true}
-      />
-    </div>
-  ),
-};
-
 export const VerticalGrid: Story = {
+  parameters: { layout: 'fullscreen' },
   render: () => (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <Card variant="vertical" className="w-full max-w-sm">
-        <CardImage
-          src="/BackgroundImage1.png"
-          alt="Service"
-          aspectRatio="video"
-        />
-        <CardHeader className="pb-2">
-          <CardTitle className="text-lg">API Gatewa</CardTitle>
-          <CardDescription>Central entry poin</CardDescription>
-        </CardHeader>
-        <CardContent className="pt-0">
-          <Tag color="green" className="mb-2">
-            Healthy
-          </Tag>
-          <p className="text-sm text-white/70">
-            Managing 1.2M requests/day with 99.9% uptime
-          </p>
-        </CardContent>
-      </Card>
-
-      <Card variant="vertical" className="w-full max-w-sm">
-        <CardImage
-          src="/BackgroundImage2.png"
-          alt="Dashboard"
-          aspectRatio="video"
-        />
-        <CardHeader className="pb-2">
-          <CardTitle className="text-lg">Data Pipelin</CardTitle>
-          <CardDescription>Stream processin</CardDescription>
-        </CardHeader>
-        <CardContent className="pt-0">
-          <Tag color="orange" className="mb-2">
-            Warning
-          </Tag>
-          <p className="text-sm text-white/70">
-            Processing 500MB/hour with minor latency issues
-          </p>
-        </CardContent>
-      </Card>
-
-      <Card variant="vertical" className="w-full max-w-sm">
-        <CardImage
-          src="/BackgroundImage3.png"
-          alt="Metrics"
-          aspectRatio="video"
-        />
-        <CardHeader className="pb-2">
-          <CardTitle className="text-lg">Cache Laye</CardTitle>
-          <CardDescription>Redis cluste</CardDescription>
-        </CardHeader>
-        <CardContent className="pt-0">
-          <Tag color="red" className="mb-2">
-            Critical
-          </Tag>
-          <p className="text-sm text-white/70">
-            Memory usage at 85%, immediate attention required
-          </p>
-        </CardContent>
-      </Card>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
+      {(
+        [
+          { title: 'First Item', tag: 'green', tagLabel: 'Active' },
+          { title: 'Second Item', tag: 'orange', tagLabel: 'Pending' },
+          { title: 'Third Item', tag: 'default', tagLabel: 'Draft' },
+        ] as const
+      ).map((item) => (
+        <Card key={item.title} variant="vertical" className="w-full max-w-sm">
+          <CardImage
+            src={PLACEHOLDER_IMAGE}
+            alt="Placeholder"
+            aspectRatio="video"
+          />
+          <CardHeader className="pb-2">
+            <CardTitle className="text-lg">{item.title}</CardTitle>
+            <CardDescription>Short description text.</CardDescription>
+          </CardHeader>
+          <CardContent className="pt-0">
+            <Tag color={item.tag} className="mb-2">
+              {item.tagLabel}
+            </Tag>
+            <p className="text-sm text-white/70">
+              Vertical cards work well in a 3-column grid.
+            </p>
+          </CardContent>
+        </Card>
+      ))}
     </div>
   ),
-  parameters: {
-    layout: 'fullscreen',
-  },
 };
 
 export const AllVariants: Story = {
+  parameters: { layout: 'fullscreen' },
   render: () => (
-    <div className="space-y-8 p-6">
-      <div>
-        <h3 className="text-white text-lg font-semibold mb-4">Default Card</h3>
-        <Card variant="default" className="max-w-md">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
+      {(
+        [
+          'default',
+          'insight',
+          'settings',
+          'elevated',
+          'glass',
+          'transparent',
+        ] as const
+      ).map((variant) => (
+        <Card key={variant} variant={variant} className="w-full">
           <CardHeader>
-            <CardTitle className="text-lg">Standard Layou</CardTitle>
-            <CardDescription>
-              Basic card with olly-grey-800 background
-            </CardDescription>
+            <CardTitle className="capitalize">{variant}</CardTitle>
+            <CardDescription>variant=&quot;{variant}&quot;</CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-white/70">
-              Content area for general information and data display.
+            <p className="text-sm text-white/70">
+              The {variant} variant. Sample content to show the surface
+              treatment.
             </p>
           </CardContent>
         </Card>
-      </div>
-
-      <div>
-        <h3 className="text-white text-lg font-semibold mb-4">Vertical Card</h3>
-        <Card variant="vertical" className="max-w-sm">
-          <CardImage
-            src="/background-numbers.png"
-            alt="Feature image"
-            aspectRatio="video"
-          />
-          <CardHeader>
-            <CardTitle className="text-lg">Image on To</CardTitle>
-            <CardDescription>
-              Content flows vertically below image
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p className="text-white/70">
-              Perfect for showcasing features with visual elements.
-            </p>
-          </CardContent>
-        </Card>
-      </div>
-
-      <div>
-        <h3 className="text-white text-lg font-semibold mb-4">
-          Horizontal Card
-        </h3>
-        <Card
-          variant="horizontal"
-          className="cursor-pointer hover:bg-[#3a393c] transition-colors"
-          image="/BackgroundImage1.png"
-          imageAlt="Service icon"
-          title="Quick Action Item"
-          description="Image on left, content in middle, chevron on right for navigation"
-        />
-      </div>
-
-      <div>
-        <h3 className="text-white text-lg font-semibold mb-4">Elevated Card</h3>
-        <Card variant="elevated" className="max-w-md">
-          <CardHeader>
-            <CardTitle className="text-lg">Enhanced Shado</CardTitle>
-            <CardDescription>
-              Elevated appearance for important content
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p className="text-white/70">
-              Use for highlighting important information or primary actions.
-            </p>
-          </CardContent>
-        </Card>
-      </div>
+      ))}
     </div>
   ),
-  parameters: {
-    layout: 'fullscreen',
-  },
 };

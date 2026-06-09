@@ -27,6 +27,7 @@ const meta: Meta<typeof Typography> = {
         'body',
         'bodySmall',
         'footnote',
+        'caption',
         'link',
       ],
       description: 'The typography variant',
@@ -69,6 +70,13 @@ export const Default: Story = {
   ),
 };
 
+export const Caption: Story = {
+  args: {
+    variant: 'caption',
+    children: 'Caption — smallest text size for dense metadata and table cells',
+  },
+};
+
 export const AllVariants: Story = {
   render: () => (
     <div className="p-8 bg-slate-900 rounded-lg space-y-4">
@@ -100,6 +108,11 @@ export const AllVariants: Story = {
       <div>
         <Typography variant="footnote">
           Footnote - Small bold text for important secondary information
+        </Typography>
+      </div>
+      <div>
+        <Typography variant="caption">
+          Caption - Smallest size, used for table cells and dense metadata
         </Typography>
       </div>
       <div>

@@ -7,7 +7,7 @@ const meta: Meta<typeof ErrorState> = {
   component: ErrorState,
   parameters: {
     layout: 'centered',
-    backgrounds: { default: 'dark' },
+    backgrounds: { default: 'olly-dark' },
   },
   tags: ['autodocs'],
   decorators: [
@@ -26,22 +26,22 @@ export const Default: Story = {};
 
 export const WithCustomTitle: Story = {
   args: {
-    title: 'Unable to load services',
+    title: 'Couldn’t load this list',
   },
 };
 
 export const WithDescription: Story = {
   args: {
-    title: 'Unable to load services',
+    title: 'Couldn’t load this list',
     description:
-      'There was a problem connecting to the server. Please check your network connection.',
+      'There was a problem connecting to the server. Please check your network and try again.',
   },
 };
 
 export const WithRetryButton: Story = {
   args: {
-    title: 'Failed to fetch data',
-    description: 'An unexpected error occurred while loading your insights.',
+    title: 'Something went wrong',
+    description: 'We hit an unexpected error. Retrying often fixes it.',
     onRetry: action('retry-clicked'),
   },
 };

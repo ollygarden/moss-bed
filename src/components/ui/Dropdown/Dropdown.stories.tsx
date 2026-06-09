@@ -2,11 +2,18 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Dropdown } from './index';
 import { useState } from 'react';
 
-const sampleOptions = [
-  { value: 'react', label: 'React' },
-  { value: 'vue', label: 'Vue.js' },
-  { value: 'angular', label: 'Angular' },
-  { value: 'svelte', label: 'Svelte' },
+const sortOptions = [
+  { value: 'recent', label: 'Most recent' },
+  { value: 'oldest', label: 'Oldest first' },
+  { value: 'alphabetical', label: 'Alphabetical (A–Z)' },
+  { value: 'impact', label: 'Highest impact' },
+];
+
+const statusOptions = [
+  { value: 'all', label: 'All statuses' },
+  { value: 'active', label: 'Active' },
+  { value: 'paused', label: 'Paused' },
+  { value: 'archived', label: 'Archived' },
 ];
 
 const meta: Meta<typeof Dropdown> = {
@@ -26,142 +33,119 @@ const meta: Meta<typeof Dropdown> = {
       </div>
     ),
   ],
-  parameters: {
-    layout: 'centered',
-  },
+  parameters: { layout: 'centered' },
   tags: ['autodocs'],
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-/**
- * Default dropdown with red background for testing
- */
 export const Default: Story = {
   render: () => {
     const [value, setValue] = useState<string>('');
 
     return (
       <Dropdown
-        options={sampleOptions}
+        options={sortOptions}
         value={value}
         onChange={setValue}
-        placeholder="Select a framework"
+        placeholder="Sort by…"
       />
     );
   },
 };
 
-/**
- * Dropdown with pre-selected value
- */
 export const WithSelectedValue: Story = {
   render: () => {
-    const [value, setValue] = useState<string>('react');
+    const [value, setValue] = useState<string>('recent');
 
     return (
       <Dropdown
-        options={sampleOptions}
+        options={sortOptions}
         value={value}
         onChange={setValue}
-        placeholder="Select a framework"
+        placeholder="Sort by…"
       />
     );
   },
 };
 
-/**
- * Disabled dropdown
- */
 export const Disabled: Story = {
   render: () => {
     const [value, setValue] = useState<string>('');
 
     return (
       <Dropdown
-        options={sampleOptions}
+        options={sortOptions}
         value={value}
         onChange={setValue}
-        placeholder="Select a framework"
-        disabled={true}
+        placeholder="Sort by…"
+        disabled
       />
     );
   },
 };
 
-/**
- * Error state dropdown
- */
 export const ErrorState: Story = {
   render: () => {
     const [value, setValue] = useState<string>('');
 
     return (
       <Dropdown
-        options={sampleOptions}
+        options={statusOptions}
         value={value}
         onChange={setValue}
-        placeholder="Select a framework"
-        error={true}
+        placeholder="Filter by status"
+        error
       />
     );
   },
 };
 
-/**
- * Chip variant dropdown - styled like a pill button
- */
 export const ChipVariant: Story = {
   render: () => {
     const [value, setValue] = useState<string>('');
 
     return (
       <Dropdown
-        options={sampleOptions}
+        options={sortOptions}
         value={value}
         onChange={setValue}
-        placeholder="Sort by..."
+        placeholder="Sort by…"
         variant="chip"
       />
     );
   },
 };
 
-/**
- * Chip variant with selected value
- */
 export const ChipWithValue: Story = {
   render: () => {
-    const [value, setValue] = useState<string>('react');
+    const [value, setValue] = useState<string>('impact');
 
     return (
       <Dropdown
-        options={sampleOptions}
+        options={sortOptions}
         value={value}
         onChange={setValue}
-        placeholder="Sort by..."
+        placeholder="Sort by…"
         variant="chip"
       />
     );
   },
 };
 
-/**
- * Chip variant disabled
- */
 export const ChipDisabled: Story = {
   render: () => {
-    const [value, setValue] = useState<string>('vue');
+    const [value, setValue] = useState<string>('recent');
 
     return (
       <Dropdown
-        options={sampleOptions}
+        options={sortOptions}
         value={value}
         onChange={setValue}
-        placeholder="Sort by..."
+        placeholder="Sort by…"
         variant="chip"
-        disabled={true}
+        disabled
       />
     );
   },

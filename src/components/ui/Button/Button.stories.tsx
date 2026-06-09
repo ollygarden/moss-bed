@@ -4,14 +4,28 @@ import Button from './index';
 const meta: Meta<typeof Button> = {
   title: 'Button',
   component: Button,
-  parameters: {
-    layout: 'centered',
-  },
+  parameters: { layout: 'centered' },
   tags: ['autodocs'],
   argTypes: {
     variant: {
       control: 'select',
-      options: ['filled', 'ghost', 'pill', 'text', 'arrow', 'icon', 'small'],
+      // Full set defined in Button.variants. Most petal usage today is
+      // `ghost`, `filled`, `text`, `pill` and `arrow`; the remaining
+      // variants are listed so the design team can see what's available
+      // at the surface and decide whether to keep them.
+      options: [
+        'filled',
+        'ghost',
+        'pill',
+        'text',
+        'arrow',
+        'icon',
+        'accent',
+        'upgrade',
+        'calendar',
+        'overlay',
+        'listItem',
+      ],
       description: 'Visual style variant of the button',
     },
     size: {
@@ -19,142 +33,123 @@ const meta: Meta<typeof Button> = {
       options: ['xs', 'small', 'medium', 'large', 'icon'],
       description: 'Size of the button',
     },
-    disabled: {
-      control: 'boolean',
-      description: 'Disable the button',
-    },
+    disabled: { control: 'boolean' },
     iconPosition: {
       control: 'select',
-      options: ['start', 'end', null],
-      description: 'Position of the icon',
+      options: ['start', 'end'],
+      description: 'Position of the icon (when an icon is provided)',
     },
     icon: {
       control: 'select',
+      // Only icons that actually exist in svg-icons.registry. Curated to
+      // a representative subset; the full Icon catalog is documented on
+      // the Icon component's page.
       options: [
-        null,
-        'alert',
-        'apps-outage',
+        undefined,
         'arrow',
-        'badge',
-        'bid-landscape',
+        'bell',
         'bolt',
-        'bounding-box',
-        'calendar-month',
         'cancel',
         'chevron',
-        'code',
-        'codesimple',
-        'data-array',
-        'data-info-alert',
+        'clock',
         'database',
-        'database-search',
-        'dinamic-screen',
-        'error',
-        'error-icon',
-        'gitbranch',
-        'github',
-        'google',
-        'healing',
-        'house',
-        'info-icon',
-        'inspect',
+        'filter',
         'lightbulb',
-        'list',
-        'list-all',
-        'medal',
-        'money',
-        'moon',
-        'problem',
+        'plus',
         'review',
-        'schedule-1',
-        'school',
-        'sdk',
         'search',
         'settings',
         'share',
-        'stacks',
         'star',
-        'success-icon',
-        'sun',
-        'support',
-        'tv-options-input-settings',
-        'union',
-        'update',
         'user',
-        'view-in-ar',
-        'vital-signs',
-        'wand-stars',
-        'warning-icon',
       ],
-      description:
-        'Icon to display (for icon and arrow variants). Set to null to hide icon.',
+      description: 'Icon to display alongside the label.',
     },
+    loading: { control: 'boolean' },
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Variant Stories
 export const Filled: Story = {
-  args: {
-    children: 'Click me',
-    variant: 'filled',
-    size: 'medium',
-  },
+  args: { children: 'Continue', variant: 'filled', size: 'medium' },
 };
 
 export const Ghost: Story = {
-  args: {
-    children: 'Click me',
-    variant: 'ghost',
-    size: 'medium',
-  },
+  args: { children: 'Cancel', variant: 'ghost', size: 'medium' },
 };
 
 export const Pill: Story = {
-  args: {
-    children: 'Click me',
-    variant: 'pill',
-    size: 'medium',
-  },
+  args: { children: 'Sort by', variant: 'pill', size: 'medium' },
 };
 
 export const Text: Story = {
-  args: {
-    children: 'Click me',
-    variant: 'text',
-    size: 'medium',
-  },
+  args: { children: 'Learn more', variant: 'text', size: 'medium' },
 };
 
 export const Arrow: Story = {
-  args: {
-    children: 'Click me',
-    variant: 'arrow',
-    size: 'medium',
-  },
+  args: { children: 'View details', variant: 'arrow', size: 'medium' },
 };
 
-export const Icon: Story = {
+export const WithIcon: Story = {
   args: {
-    children: 'Click me',
-    variant: 'icon',
-    icon: 'star',
+    children: 'Add item',
+    variant: 'filled',
+    size: 'medium',
+    icon: 'plus',
     iconPosition: 'start',
-    size: 'medium',
   },
 };
 
-export const Small: Story = {
+export const IconOnly: Story = {
+  name: 'Icon (size="icon")',
   args: {
-    children: 'Click me',
-    variant: 'ghost',
-    size: 'medium',
+    'aria-label': 'Settings',
+    variant: 'filled',
+    size: 'icon',
+    icon: 'settings',
   },
 };
 
-// Playground
+export const Loading: Story = {
+  args: {
+    children: 'Saving…',
+    variant: 'filled',
+    size: 'medium',
+    loading: true,
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    children: 'Unavailable',
+    variant: 'filled',
+    size: 'medium',
+    disabled: true,
+  },
+};
+
+export const Sizes: Story = {
+  parameters: { layout: 'centered' },
+  render: () => (
+    <div className="flex items-center gap-3">
+      <Button variant="filled" size="xs">
+        xs
+      </Button>
+      <Button variant="filled" size="small">
+        small
+      </Button>
+      <Button variant="filled" size="medium">
+        medium
+      </Button>
+      <Button variant="filled" size="large">
+        large
+      </Button>
+    </div>
+  ),
+};
+
 export const Playground: Story = {
   args: {
     children: 'Button',
