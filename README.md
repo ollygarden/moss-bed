@@ -2,7 +2,7 @@
 
 React UI component library — dark-first design system built with Tailwind CSS, Radix UI, and CVA. Originated in [Petal](https://github.com/ollygarden/petal) (the OllyGarden Cloud frontend) and extracted as a standalone package so it can be consumed across products and by external collaborators (Figma Make, design systems work, etc.).
 
-- **29 accessible components** (Radix UI primitives + shadcn/ui patterns)
+- **28 accessible components** (Radix UI primitives + shadcn/ui patterns)
 - **Tailwind preset** with the Olly design tokens
 - **TypeScript-first** — all components fully typed
 - **Dark-first** — design system is dark by default; light mode is reserved on the same token surface
@@ -138,7 +138,6 @@ All components are exported from the package root. Types follow the `{ComponentN
 | `Loader`               | Loading spinner / snake animation        |
 | `EmptyState`           | No-results / no-data placeholder         |
 | `ErrorState`           | Error display with retry                 |
-| `Toaster`, `showToast` | Toast notifications                      |
 
 ### Data
 

@@ -160,17 +160,8 @@ export { Textarea } from './Textarea';
 export type { TextareaProps } from './Textarea';
 export { textareaVariants } from './Textarea/Textarea.variants';
 
-export {
-  Toast,
-  Toaster,
-  ToastProvider,
-  ToastViewport,
-  ToastTitle,
-  ToastDescription,
-  ToastClose,
-  ToastAction,
-} from './Toast';
-export { showToast } from './Toast/Toast.store';
+// Toast was removed from the library — only one real consumer remained in
+// the petal codebase (StripeReturnHandler). Use Alert for inline messaging.
 
 export { Toggle, ToggleGroup, ToggleGroupItem } from './Toggle';
 export type {
