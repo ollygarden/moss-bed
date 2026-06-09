@@ -1,0 +1,42 @@
+/**
+ * moss-bed CSS custom properties
+ *
+ * moss-bed ships a single dark theme. Variables are defined on both `:root`
+ * and `.dark` so consumers get consistent styling whether or not they toggle
+ * a `dark` class at the document root:
+ *
+ *   import 'moss-bed/styles';
+ */
+
+:root,
+.dark {
+  --background: 210 10% 4%;
+  --foreground: 210 40% 98%;
+
+  --card: 214 7% 14%;
+  --card-foreground: 210 40% 98%;
+
+  --popover: 214 7% 14%;
+  --popover-foreground: 210 40% 98%;
+
+  --primary: 210 40% 98%;
+  --primary-foreground: 214 7% 14%;
+
+  --secondary: 215 7% 20%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 215 7% 20%;
+  --muted-foreground: 215 20% 65%;
+
+  --accent: 62 80% 56%;
+  --accent-foreground: 214 7% 14%;
+
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 215 7% 20%;
+  --input: 215 7% 20%;
+  --ring: 62 80% 56%;
+
+  --radius: 0.5rem;
+}

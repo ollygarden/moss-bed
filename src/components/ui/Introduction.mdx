@@ -1,0 +1,38 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction" />
+
+# Moss-bed
+
+Moss-bed is a React UI component library — a dark-first design system originally built for Petal (the OllyGarden Cloud frontend) and now extracted as a standalone package so it can be consumed by every product in the org.
+
+This Storybook is the canonical visual reference. Each component is documented here with its variants, states, and props.
+
+## Principles
+
+- **Consistency** — One design language across products.
+- **Accessibility** — WCAG 2.1 AA as the baseline.
+- **Dark-first** — Optimized for the OllyGarden dark aesthetic; light mode supported.
+- **Flexible** — Variant-based styling via `class-variance-authority` (CVA) on top of Tailwind CSS.
+
+## Brand tokens
+
+- **Accent** `#e2e735` — primary actions, key highlights.
+- **Dark** `#24272a` — canvas, surface elevation base.
+
+## Architecture
+
+Components are built on top of:
+
+- **Tailwind CSS** for styling (consumed via the `moss-bed/tailwind-preset` preset)
+- **Radix UI primitives** for accessibility-grade interactive behavior
+- **CVA** (`class-variance-authority`) for variant management
+- **React 18 / 19** as the React peer
+
+## Installing
+
+```bash
+npm install moss-bed
+```
+
+See the repo [README](https://github.com/ollygarden/moss-bed#readme) for the full install + Tailwind wiring guide.

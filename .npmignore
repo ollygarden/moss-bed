@@ -1,0 +1,31 @@
+# npmignore is intentionally NOT used as the primary filter — `files`
+# in package.json is the source of truth for what gets published.
+# This file exists only to prevent accidents if someone removes `files`.
+
+src/
+.storybook/
+.github/
+node_modules/
+storybook-static/
+coverage/
+
+*.test.ts
+*.test.tsx
+*.stories.tsx
+*.stories.ts
+*.spec.ts
+
+.gitignore
+.prettierrc
+.prettierignore
+.eslintrc*
+eslint.config.js
+vite.config.ts
+tsconfig*.json
+tailwind.config.ts
+PUBLISHING.md
+bun.lock
+package-lock.json
+
+.env
+.env.*

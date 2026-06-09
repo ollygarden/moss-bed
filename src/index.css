@@ -1,0 +1,16 @@
+@import 'tailwindcss';
+
+@config "../tailwind.config.ts";
+
+@import './moss-bed-variables.css';
+
+/* Keyboard focus: subtle grey ring (matches Petal's global pattern) */
+:focus-visible {
+  outline: 1px solid #7c7d7f;
+  outline-offset: 2px;
+}
+
+[data-focus-wrapper] input:focus-visible,
+[data-focus-wrapper] textarea:focus-visible {
+  outline: none;
+}

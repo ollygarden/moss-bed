@@ -1,0 +1,20 @@
+node_modules/
+dist/
+storybook-static/
+coverage/
+.DS_Store
+*.log
+*.tsbuildinfo
+
+# Editor
+.vscode/
+.idea/
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Tooling
+.turbo/
+.cache/
