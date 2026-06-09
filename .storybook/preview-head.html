@@ -8,3 +8,22 @@
   // Apply dark class before React renders so the first paint is dark.
   document.documentElement.classList.add('dark');
 </script>
+<style>
+  /* Force the canvas iframe + docs containers to the Olly dark background.
+   * Storybook 10's default backgrounds addon doesn't reliably paint the
+   * canvas behind the story; setting it here covers both the canvas view
+   * and every story-block in the Docs view. */
+  html,
+  body,
+  .sb-show-main,
+  .sb-main-padded,
+  .sb-main-fullscreen,
+  .sb-main-centered,
+  .docs-story,
+  .sbdocs-preview,
+  .sbdocs-content,
+  .innerZoomElementWrapper {
+    background-color: #24272a !important;
+    color: #f1f5f9;
+  }
+</style>
