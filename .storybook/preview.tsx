@@ -1,6 +1,7 @@
 import type { Preview } from '@storybook/react-vite';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
+import { themes } from 'storybook/theming';
 import '../src/index.css';
 
 const preview: Preview = {
@@ -21,6 +22,16 @@ const preview: Preview = {
       ],
     },
     layout: 'centered',
+    docs: {
+      theme: {
+        ...themes.dark,
+        appBg: '#24272a',
+        appContentBg: '#24272a',
+        textColor: '#f1f5f9',
+        colorPrimary: '#e2e735',
+        colorSecondary: '#e2e735',
+      },
+    },
   },
   decorators: [
     (Story) => (
