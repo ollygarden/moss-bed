@@ -1,8 +1,7 @@
 @import 'tailwindcss';
+@import './moss-bed-variables.css';
 
 @config "../tailwind.config.ts";
-
-@import './moss-bed-variables.css';
 
 /* Keyboard focus: subtle grey ring (matches Petal's global pattern) */
 :focus-visible {

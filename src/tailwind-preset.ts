@@ -201,3 +201,5 @@ export const cssVariables = {
   '--ring': '62 80% 56%',
   '--radius': '0.5rem',
 } as const;
+
+export default mossBedPreset;

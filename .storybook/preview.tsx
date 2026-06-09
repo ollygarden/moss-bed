@@ -1,5 +1,5 @@
-import type { Preview } from '@storybook/react';
-import React, { useEffect } from 'react';
+import type { Preview } from '@storybook/react-vite';
+import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import '../src/index.css';
 
@@ -28,12 +28,6 @@ const preview: Preview = {
         <Story />
       </MemoryRouter>
     ),
-    (Story) => {
-      useEffect(() => {
-        document.documentElement.classList.add('dark');
-      }, []);
-      return <Story />;
-    },
   ],
 };
 
