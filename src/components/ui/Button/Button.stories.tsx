@@ -13,6 +13,8 @@ const meta: Meta<typeof Button> = {
       // `ghost`, `filled`, `text`, `pill` and `arrow`; the remaining
       // variants are listed so the design team can see what's available
       // at the surface and decide whether to keep them.
+      // `accent` (yellow) is omitted on purpose — the app doesn't use
+      // yellow buttons; exposing it in the playground was misleading.
       options: [
         'filled',
         'ghost',
@@ -20,7 +22,6 @@ const meta: Meta<typeof Button> = {
         'text',
         'arrow',
         'icon',
-        'accent',
         'upgrade',
         'calendar',
         'overlay',

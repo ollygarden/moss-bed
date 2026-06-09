@@ -95,7 +95,7 @@ export const Insight: Story = {
         <CardContent>
           <div className="flex items-center gap-2 mb-3">
             <Tag color="green">Resolved</Tag>
-            <Tag color="default">3 items</Tag>
+            <Tag color="grey">3 items</Tag>
           </div>
           <p className="text-sm text-white/70">
             Sits on grey-900 with a soft shadow for visual hierarchy.
@@ -215,7 +215,7 @@ export const Vertical: Story = {
         <CardContent className="pt-0">
           <div className="flex items-center gap-2 mb-3">
             <Tag color="green">Active</Tag>
-            <Tag color="default">Featured</Tag>
+            <Tag color="grey">Featured</Tag>
           </div>
           <p className="text-sm text-white/70">
             Use for media-led content blocks in grids.
@@ -239,7 +239,7 @@ export const VerticalGrid: Story = {
         [
           { title: 'First Item', tag: 'green', tagLabel: 'Active' },
           { title: 'Second Item', tag: 'orange', tagLabel: 'Pending' },
-          { title: 'Third Item', tag: 'default', tagLabel: 'Draft' },
+          { title: 'Third Item', tag: 'grey', tagLabel: 'Draft' },
         ] as const
       ).map((item) => (
         <Card key={item.title} variant="vertical" className="w-full max-w-sm">
