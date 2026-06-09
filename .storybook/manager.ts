@@ -15,6 +15,7 @@ addons.setConfig({
     // Surfaces
     appBg: '#24272a',
     appContentBg: '#29282B',
+    appPreviewBg: '#24272a',
     appBorderColor: '#38373A',
 
     // Toolbar

@@ -1,0 +1,18 @@
+<style>
+  /* The canvas iframe element itself paints background before the theme
+   * CSS lands and before the iframe content renders. Force it dark via
+   * the element ID so there's no white flash on first load or while a
+   * story is preparing. */
+  #storybook-preview-iframe {
+    background-color: #24272a !important;
+  }
+  /* Storybook's transitional wrappers during story load. */
+  .sb-preparing-story,
+  .sb-preparing-docs,
+  .sb-loader,
+  .sb-wrapper,
+  .sb-nopreview,
+  .sb-errordisplay {
+    background-color: #24272a !important;
+  }
+</style>
