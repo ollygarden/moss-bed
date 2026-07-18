@@ -197,7 +197,9 @@ See [PUBLISHING.md](./PUBLISHING.md) for the release workflow.
 
 ## Contributing
 
-Community contributions are welcome. Please read [CONTRIBUTING.md](./CONTRIBUTING.md), and include tests plus Storybook evidence for behavior or visual changes.
+Community contributions are welcome. Please read
+[CONTRIBUTING.md](./CONTRIBUTING.md), and include tests for behavior changes and
+Storybook evidence or screenshots for visual changes.
 
 ## Version
 
