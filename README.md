@@ -129,15 +129,15 @@ All components are exported from the package root. Types follow the `{ComponentN
 
 ### Feedback & status
 
-| Component              | Notes                                    |
-| ---------------------- | ---------------------------------------- |
-| `Alert`                | Banner alert — `alertVariants`           |
-| `Tag`                  | Small label / chip — `tagVariants`       |
-| `StatusBar`            | Status / progress bar                    |
-| `Skeleton`             | Loading placeholder — `skeletonVariants` |
-| `Loader`               | Loading spinner / snake animation        |
-| `EmptyState`           | No-results / no-data placeholder         |
-| `ErrorState`           | Error display with retry                 |
+| Component    | Notes                                    |
+| ------------ | ---------------------------------------- |
+| `Alert`      | Banner alert — `alertVariants`           |
+| `Tag`        | Small label / chip — `tagVariants`       |
+| `StatusBar`  | Status / progress bar                    |
+| `Skeleton`   | Loading placeholder — `skeletonVariants` |
+| `Loader`     | Loading spinner / snake animation        |
+| `EmptyState` | No-results / no-data placeholder         |
+| `ErrorState` | Error display with retry                 |
 
 ### Data
 

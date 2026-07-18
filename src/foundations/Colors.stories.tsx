@@ -265,7 +265,9 @@ function Swatch({ swatch }: { swatch: Swatch }) {
           {swatch.twClass}
         </div>
         {swatch.note && (
-          <div className="mt-1 text-[10px] text-olly-grey-200">{swatch.note}</div>
+          <div className="mt-1 text-[10px] text-olly-grey-200">
+            {swatch.note}
+          </div>
         )}
       </div>
     </div>
@@ -313,10 +315,10 @@ const SemanticTokens = () => (
     <header className="space-y-2">
       <h1 className="text-3xl font-bold text-white">Semantic tokens</h1>
       <p className="text-sm text-olly-grey-200 max-w-2xl">
-        shadcn-style design tokens backed by CSS variables. Components use
-        these (e.g. <code className="text-xs">bg-card</code>,{' '}
-        <code className="text-xs">text-muted-foreground</code>) so theming
-        works through a single token surface.
+        shadcn-style design tokens backed by CSS variables. Components use these
+        (e.g. <code className="text-xs">bg-card</code>,{' '}
+        <code className="text-xs">text-muted-foreground</code>) so theming works
+        through a single token surface.
       </p>
     </header>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
