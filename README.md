@@ -2,6 +2,8 @@
 
 React UI component library — dark-first design system built with Tailwind CSS, Radix UI, and CVA. Originated in [Petal](https://github.com/ollygarden/petal) (the OllyGarden Cloud frontend) and extracted as a standalone package so it can be consumed across products and by external collaborators (Figma Make, design systems work, etc.).
 
+This is the actively maintained public source of truth for the shared component library. See [AGENTS.md](./AGENTS.md) for repository and public-API guardrails and [CONTRIBUTING.md](./CONTRIBUTING.md) for the community contribution workflow.
+
 - **28 accessible components** (Radix UI primitives + shadcn/ui patterns)
 - **Tailwind preset** with the Olly design tokens
 - **TypeScript-first** — all components fully typed
@@ -192,6 +194,12 @@ bun run lint       # eslint
 ```
 
 See [PUBLISHING.md](./PUBLISHING.md) for the release workflow.
+
+## Contributing
+
+Community contributions are welcome. Please read
+[CONTRIBUTING.md](./CONTRIBUTING.md), and include tests for behavior changes and
+Storybook evidence or screenshots for visual changes.
 
 ## Version
 
